@@ -1,0 +1,18 @@
+{
+   "name": "Dodo List",
+   "version": "1.0.0",
+   "description": "To do list extension!",
+   "manifest_version": 2,
+   "permissions": [
+      "activeTab",
+      "webNavigation"
+   ],
+   "background": {
+      "scripts": [
+         "background.js"
+      ]
+   },
+   "page_action": {
+      "default_popup": "index.html"
+   }
+}
