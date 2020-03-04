@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
    "name": "Dodo List",
    "version": "1.0.0",
    "description": "To do list extension!",
@@ -10,15 +9,10 @@
    ],
    "background": {
       "scripts": [
-         "background.js"
+         "background-es5.js",
+         "runtime-es5.js"
       ]
    },
-=======
-   "name": "Great Extension",
-   "version": "1.0",
-   "description": "Build an Extension with Angular",
-   "manifest_version": 2,
->>>>>>> 180e7ab5afc7ea2b066e57339caaef185f6d2c40
    "page_action": {
       "default_popup": "index.html"
    }
