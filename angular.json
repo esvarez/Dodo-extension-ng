@@ -7,12 +7,12 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "less"
         }
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "dol",
       "architect": {
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
@@ -26,10 +26,16 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.json"
+              "src/manifest.json",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.less",
+              "node_modules/ng-zorro-antd/ng-zorro-antd.min.css"
             ],
             "scripts": [],
             "customWebpackConfig": {
