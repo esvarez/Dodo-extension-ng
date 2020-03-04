@@ -9,8 +9,8 @@
    ],
    "background": {
       "scripts": [
-         "background-es5.js",
-         "runtime-es5.js"
+         "background.js",
+         "runtime.js"
       ]
    },
    "page_action": {
