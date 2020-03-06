@@ -1,0 +1,34 @@
+<p>task-list works!</p>
+<nz-list
+  class="demo-loadmore-list"
+  [nzDataSource]="tasks"
+  [nzItemLayout]="'horizontal'"
+  [nzLoading]="initLoading"
+  [nzRenderItem]="item"
+  [nzLoadMore]="loadMore"
+>
+  <ng-template #item let-item>
+    <nz-list-item
+      [nzContent]="item.loading ? '' : 'label'"
+      [nzActions]="item.loading ? [] : [editAction, moreAction]"
+    >
+      <nz-skeleton [nzAvatar]="true" [nzActive]="true" [nzTitle]="false" [nzLoading]="item.loading">
+        <ng-template #editAction><a (click)="edit(item)">edit</a></ng-template>
+        <ng-template #moreAction><a (click)="edit(item)">more</a></ng-template>
+        <nz-list-item-meta
+          [nzTitle]="nzTitle"             
+          nzDescription="My description"
+        >
+          <ng-template #nzTitle>
+            <label nz-checkbox [(ngModel)]="item.complete">{{ item.task }}</label>
+          </ng-template>          
+        </nz-list-item-meta>
+      </nz-skeleton>
+    </nz-list-item>
+  </ng-template>
+  <ng-template #loadMore>
+    <div class="loadmore">
+      <button nz-button *ngIf="!loadingMore" (click)="onLoadMore()">loading more</button>
+    </div>
+  </ng-template>
+</nz-list>
