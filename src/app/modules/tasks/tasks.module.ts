@@ -1,28 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
-/** Ng Zorro Modules */
-import { NzButtonModule } from 'ng-zorro-antd/button'
-import { NzCheckboxModule } from 'ng-zorro-antd/checkbox'
-import { NzListModule } from 'ng-zorro-antd/list'
-import { NzSkeletonModule } from 'ng-zorro-antd/skeleton'
+/** Modules */
+import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 /** Components */
 import { TaskIndexComponent } from './pages/task-index/task-index.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
-import { FormsModule } from '@angular/forms';
+import { TaskFormComponent } from './components/task-form/task-form.component';
 
 
 
 @NgModule({
-  declarations: [TaskIndexComponent, TaskListComponent],
+  declarations: [TaskIndexComponent, TaskListComponent, TaskFormComponent],
   imports: [
     CommonModule,
-    NzButtonModule,
-    NzCheckboxModule,
-    NzListModule,
-    NzSkeletonModule,
-    FormsModule
+    FormsModule,
+    NgZorroAntdModule
   ],
   exports: [
     TaskIndexComponent

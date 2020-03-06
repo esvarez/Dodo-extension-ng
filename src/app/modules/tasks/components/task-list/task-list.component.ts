@@ -48,6 +48,6 @@ export class TaskListComponent implements OnInit {
   }
 
   edit(item: any): void {   
+    console.log(item)
   }
-
 }
