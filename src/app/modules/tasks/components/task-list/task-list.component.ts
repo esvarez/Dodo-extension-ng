@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ITask, Task } from 'src/app/shared/models';
 
 const count = 5;
 const fakeDataUrl = 'https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo';
@@ -14,6 +15,12 @@ export class TaskListComponent implements OnInit {
   loadingMore = false;
   data: any[] = [];
   list: Array<{ loading: boolean; name: any }> = [];
+
+  tasks: Task[] = [
+    {id: 1, task: "task 1", complete: true },
+    {id: 2, task: "task 2", complete: false },
+    {id: 3, task: "task 3", complete: true }
+  ]
 
   constructor(private http: HttpClient) {}
 
