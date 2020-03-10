@@ -6,21 +6,23 @@ import {
   NzButtonModule,
   NzCheckboxModule,
   NzFormModule,
+  NzInputModule,
   NzListModule,
   NzPageHeaderModule,
   NzSelectModule,
-  NzSkeletonModule 
+  NzSkeletonModule
 } from 'ng-zorro-antd'
 
 
 
 @NgModule({
   declarations: [],
-  imports: [
+  exports: [
     CommonModule,
     NzButtonModule,
     NzCheckboxModule,
     NzFormModule,
+    NzInputModule,
     NzListModule,
     NzPageHeaderModule,
     NzSelectModule,

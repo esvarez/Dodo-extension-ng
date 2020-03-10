@@ -9,6 +9,7 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { TaskIndexComponent } from './pages/task-index/task-index.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
+import { NgZorroModule } from '../ng-zorro/ng-zorro.module';
 
 
 
@@ -18,7 +19,8 @@ import { TaskFormComponent } from './components/task-form/task-form.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgZorroAntdModule
+    NgZorroModule
+    //NgZorroAntdModule
   ],
   exports: [
     TaskIndexComponent
