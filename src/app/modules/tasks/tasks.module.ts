@@ -18,9 +18,8 @@ import { NgZorroModule } from '../ng-zorro/ng-zorro.module';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
-    NgZorroModule
-    //NgZorroAntdModule
+    ReactiveFormsModule
+    NgZorroAntdModule
   ],
   exports: [
     TaskIndexComponent
