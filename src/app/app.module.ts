@@ -29,7 +29,6 @@ registerLocaleData(en)
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,
     TasksModule
   ],
   providers: [

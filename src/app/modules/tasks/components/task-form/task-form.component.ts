@@ -21,6 +21,8 @@ export class TaskFormComponent implements OnInit {
   ngOnInit(): void {
     this.validateTask = this.fb.group({
       task: [null, [Validators.required]],
+      description: [null, [Validators.required]],
+      date: [null, [Validators.required]],
 
       userName: [null, [Validators.required]],
       password: [null, [Validators.required]],

@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { 
   NzButtonModule,
   NzCheckboxModule,
+  NzDatePickerModule,
   NzFormModule,
   NzInputModule,
   NzListModule,
@@ -21,6 +22,7 @@ import {
     CommonModule,
     NzButtonModule,
     NzCheckboxModule,
+    NzDatePickerModule,
     NzFormModule,
     NzInputModule,
     NzListModule,

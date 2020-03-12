@@ -1,10 +1,21 @@
 <p>task-form works!</p>
-<nz-page-header nzTitle="Title" nzSubtitle="This is a subtitle"> </nz-page-header>
 <form nz-form [nzLayout]="'inline'" [formGroup]="validateTask" (ngSubmit)="submitForm()">
    <nz-form-item>
       <nz-form-control nzErrorTip="Eror">
          <nz-input-group nzPrefixIcon="form">
             <input formControlName="task" nz-input placeholder="New Dodo" />
+         </nz-input-group>
+      </nz-form-control>
+   </nz-form-item>
+   <nz-form-item>
+         <nz-form-control nzErrorTip="Error 2">
+               <nz-date-picker formControlName="date"></nz-date-picker>
+         </nz-form-control>
+      </nz-form-item>
+   <nz-form-item>
+      <nz-form-control nzErrorTip="Error 2">
+         <nz-input-group>
+            <textarea nz-input placeholder="Description" formControlName="description" nzAutosize></textarea>
          </nz-input-group>
       </nz-form-control>
    </nz-form-item>
