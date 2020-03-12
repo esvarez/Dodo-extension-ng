@@ -17,9 +17,12 @@ export class TaskListComponent implements OnInit {
   list: Array<{ loading: boolean; name: any }> = [];
 
   tasks: Task[] = [
-    {id: 1, task: "task 1", label: "default", complete: true },
-    {id: 2, task: "task 2", label: "default", complete: false },
-    {id: 3, task: "task 3", label: "default", complete: true }
+    {id: 1, task: "task 1", label: "default", complete: false },
+    {id: 2, task: "task 2", label: "Work", complete: false },
+    {id: 3, task: "task 3", label: "Daily", complete: false },
+    {id: 1, task: "task 1", label: "default", complete: false },
+    {id: 2, task: "task 2", label: "Work", complete: true },
+    {id: 1, task: "task 1", label: "default", complete: true }
   ]
 
   constructor(private http: HttpClient) {}
