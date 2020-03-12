@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 
 /** Ng Zorro Modules */
 import { 
@@ -11,8 +11,15 @@ import {
   NzListModule,
   NzPageHeaderModule,
   NzSelectModule,
-  NzSkeletonModule
+  NzSkeletonModule,
+  en_US,
+  NZ_I18N
 } from 'ng-zorro-antd'
+
+/** Confign anglar i18n */
+import { registerLocaleData } from '@angular/common'
+import en from '@angular/common/locales/en';
+registerLocaleData(en)
 
 
 
@@ -29,6 +36,9 @@ import {
     NzPageHeaderModule,
     NzSelectModule,
     NzSkeletonModule
+  ],
+  providers: [
+    { provide: NZ_I18N, useValue: en_US}
   ]
 })
 export class NgZorroModule { }

@@ -15,10 +15,6 @@ import { AppComponent } from './app.component';
 /** Ng Zorro */
 import { NZ_I18N, en_US } from 'ng-zorro-antd'
 
-/** Confign anglar i18n */
-import { registerLocaleData } from '@angular/common'
-import en from '@angular/common/locales/en';
-registerLocaleData(en)
 
 @NgModule({
   declarations: [
@@ -32,8 +28,6 @@ registerLocaleData(en)
     TasksModule
   ],
   providers: [
-    { provide: NZ_I18N, useValue: en_US},
-    Location
   ],
   bootstrap: [AppComponent]
 })

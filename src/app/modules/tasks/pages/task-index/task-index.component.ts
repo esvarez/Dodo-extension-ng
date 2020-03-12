@@ -12,4 +12,8 @@ export class TaskIndexComponent implements OnInit {
   ngOnInit() {
   }
 
+  onBack(): void {
+    console.log('onBack');
+  }
+
 }
