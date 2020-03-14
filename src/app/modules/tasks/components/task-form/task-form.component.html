@@ -25,10 +25,15 @@
          <nz-form-control [nzSpan]="14" [nzOffset]="6">
            <button nz-button nzType="primary">Add Dodo</button>
          </nz-form-control>
-       </nz-form-item>      
+       </nz-form-item>  
+       <nz-form-item nz-row class="register-area">
+          <nz-form-control>
+               <nz-select [(ngModel)]="selectedValue" nzAllowClear nzPlaceHolder="Choose">
+                  <nz-option nzValue="jack" nzLabel="Default"></nz-option>
+                  <nz-option nzValue="lucy" nzLabel="Daily"></nz-option>
+                  <nz-option nzValue="disabled" nzLabel="Work" nzDisabled></nz-option>
+               </nz-select>
+          </nz-form-control>
+       </nz-form-item>    
 </form>                             
-<nz-select [(ngModel)]="selectedValue" nzAllowClear nzPlaceHolder="Choose">
-   <nz-option nzValue="jack" nzLabel="Default"></nz-option>
-   <nz-option nzValue="lucy" nzLabel="Daily"></nz-option>
-   <nz-option nzValue="disabled" nzLabel="Work" nzDisabled></nz-option>
- </nz-select>
+
