@@ -1,1 +1,164 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+  background: -webkit-linear-gradient(110deg, #e9b827 60%, #ffed4b 60%);
+  background: -o-linear-gradient(110deg, #e9b827 60%, #ffed4b 60%);
+  background: -moz-linear-gradient(110deg, #e9b827 60%, #ffed4b 60%);
+  background: linear-gradient(110deg, #e9b827 60%, #ffed4b 60%);
+  height: 100vh;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+.main {
+  height: 400px;
+  width: 420px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px;
+  font-family: Helvetica, Ubuntu, Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  margin-bottom: 1em;
+}
+
+.header h1 {
+  margin: auto 15px;
+}
+
+.img {
+  height: 60px;
+  margin-left: 15px;
+}
+
+.new_dodo {
+  width: 250px;
+  height: 30px;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  padding: 0 15px;
+}
+
+.new_dodo:focus::placeholder {
+  color: transparent;
+}
+
+.btn_add_dodo {
+  padding: 5px 15px;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  font-size: 16px;
+  background-color: #2ccd78;
+  color: white;
+  transition: all .2s ease-in-out;
+}
+
+.btn_add_dodo:active {
+  transform: scale(1.2);
+}
+
+.btn_add_dodo:hover {
+  background-color: #27b368;
+  scale: (1.2);
+  cursor: pointer;
+}
+
+.dodos_body {
+  z-index: 1;
+  position: relative;
+  height: 100%;
+}
+
+.dodos {
+  height: 100%;
+  padding: 10px 10px 100px;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.dodo {
+  background: #FFF;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+}
+
+.dodo_label {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  width: 100%;
+  padding: 5px 10px 5px 15px;
+  box-sizing: border-box;
+}
+.dodo_label input {
+  display: none;
+}
+.dodo_label input:checked ~ span {
+  color: #999;
+  text-decoration: line-through;
+}
+.dodo_label input:checked ~ .dodo_mark {
+  background: #36D6B1;
+}
+.dodo_label span {
+  -webkit-box-ordinal-group: 2;
+  order: 1;
+  color: #666;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.dodo_mark {
+  -webkit-box-ordinal-group: 3;
+  order: 2;
+  position: relative;
+  background: #FFF;
+  width: 20px;
+  height: 20px;
+  border: 0;
+  border-radius: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.dodo_mark:before, .dodo_mark:after {
+  content: "";
+  position: absolute;
+  display: block;
+  background: #FFF;
+  width: 10px;
+  height: 1px;
+  top: 48%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.dodo_mark:before {
+  -webkit-transform-origin: right;
+  transform-origin: right;
+  -webkit-transform: translate(-43%, -400%) rotate(-45deg);
+  transform: translate(-43%, -400%) rotate(-45deg);
+}
+.dodo_mark:after {
+  width: 6px;
+  -webkit-transform-origin: left;
+  transform-origin: left;
+  -webkit-transform: translate(-90%, -50%) rotate(45deg);
+  transform: translate(-90%, -50%) rotate(45deg);
+}
