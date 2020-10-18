@@ -1,0 +1,63 @@
+input,
+button,
+ul {
+  margin:0;
+  border:0;
+  padding:0;
+  display:inline-block;
+  vertical-align:middle;
+  white-space:normal;
+  background:none;
+  outline: none;
+}
+
+.add-todo {
+  width: 100%;
+  position: relative;
+  margin: 1rem 0;
+  &__btn {
+    text-align: center;
+    color: #fafafa;
+    line-height: 1;
+    position: absolute;
+    font-size: 150%;
+    right: 0;
+    top: 50%;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    background: #1FAB89;
+    opacity: 0;
+    transform: translate(0, -50%) scale(0) rotate(180deg);
+    transition: transform, opacity, .5s cubic-bezier(.87,-.41,.19,1.44);
+    cursor: pointer;
+    &:focus {
+      opacity: 1;
+      transform: translate(50%, -50%) scale(1.1) rotate(0deg);
+    }
+    &:active {
+      opacity: 1;
+      transition: transform, opacity, .1s cubic-bezier(.87,-.41,.19,1.44);
+      transform: translate(50%, -50%) scale(0.95) rotate(0deg);
+    }
+  }
+  &__input {
+    width: 325px;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    background: #e8ebed;
+    margin: 0;
+    outline: 0;
+    border: 2px solid #e8ebed;
+    transition: background .25s ease-out;
+    transition: border .25s ease-out;
+    &:focus {
+      background: none;
+      border: 2px solid #62D2A2;
+    }
+  }
+  &__input:focus + &__btn {
+    opacity: 1;
+    transform: translate(50%, -50%) scale(1) rotate(0deg);
+  }
+}

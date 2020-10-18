@@ -3,10 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Raleway', sans-serif;
-  background: -webkit-linear-gradient(110deg, #e9b827 60%, #ffed4b 60%);
-  background: -o-linear-gradient(110deg, #e9b827 60%, #ffed4b 60%);
-  background: -moz-linear-gradient(110deg, #e9b827 60%, #ffed4b 60%);
-  background: linear-gradient(110deg, #e9b827 60%, #ffed4b 60%);
+  background-color: #fafafa;
   height: 100vh;
 }
 
@@ -16,12 +13,14 @@ h1 {
 
 .main {
   height: 400px;
-  width: 420px;
-  text-align: center;
+  width: 360px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 1rem 3rem;
   font-family: Helvetica, Ubuntu, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
+/*
 
 .header {
   display: flex;
@@ -162,3 +161,4 @@ h1 {
   -webkit-transform: translate(-90%, -50%) rotate(45deg);
   transform: translate(-90%, -50%) rotate(45deg);
 }
+ */
