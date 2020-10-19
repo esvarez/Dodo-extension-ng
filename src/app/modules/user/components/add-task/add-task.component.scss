@@ -55,9 +55,23 @@ ul {
       background: none;
       border: 2px solid #62D2A2;
     }
+
+    &.ng-touched {
+      &.ng-invalid {
+        border: 2px solid red;
+      }
+    }
   }
+
+  .error {
+    display: block;
+    margin: 0.5em 1rem;
+    color: red;
+  }
+
   &__input:focus + &__btn {
     opacity: 1;
     transform: translate(50%, -50%) scale(1) rotate(0deg);
   }
 }
+

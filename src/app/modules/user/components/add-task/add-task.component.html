@@ -1,6 +1,9 @@
 <div class="add-todo">
-  <input class="add-todo__input" placeholder="New Dodo...."/>
-  <button class="add-todo__btn">
+  <input class="add-todo__input" (keyup.enter)="addTask()" (focusout)="clearFocus()" [formControl]="task" placeholder="New Dodo...."/>
+  <span *ngIf="task.invalid && task.touched" class="error">
+      Add a valid dodo
+  </span>
+  <button class="add-todo__btn" (click)="addTask()">
     <fa-icon [icon]="faPlus"></fa-icon>
   </button>
 </div>

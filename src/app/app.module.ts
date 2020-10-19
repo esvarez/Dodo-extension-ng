@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ReactiveFormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './modules/user/components/header/header.component';
 import { AddTaskComponent } from './modules/user/components/add-task/add-task.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TaskListComponent } from './modules/user/components/task-list/task-list.component';
 
 @NgModule({
@@ -16,7 +17,8 @@ import { TaskListComponent } from './modules/user/components/task-list/task-list
   ],
   imports: [
     BrowserModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

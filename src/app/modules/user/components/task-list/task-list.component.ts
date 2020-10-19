@@ -16,6 +16,14 @@ export class TaskListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log("Init")
+    this.getTask()
+  }
+
+  private getTask() {
+    chrome.storage.sync.get('tasks', function (tasks) {
+      console.log(tasks)
+    })
   }
 
 }
