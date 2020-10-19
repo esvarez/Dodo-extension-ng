@@ -1,16 +1,45 @@
-<p>task-list works!</p>
-<div class="items">
-  <div class="item">
-    <div class="item__icon">
-    </div>
-    <span class="item__name">Finish the app</span>
-    <div class="item__name"></div>
-    <div class="item__edit"></div>
-    <div class="item__delete"></div>
-  </div>
-</div>
+<div class="tasks">
 
-<div class="dodos_body">
-  <ul id="dodoList" class="dodos">
-  </ul>
+  <div class="task">
+    <div class="task__icon-check">
+      <fa-icon [icon]="faCheck" class="completed"></fa-icon>
+      <fa-icon [icon]="faCircle" class="uncompleted"></fa-icon>
+    </div>
+    <div class="task__name">
+      <span>okie</span>
+    </div>
+    <div class="task__action-icons">
+      <fa-icon class="item-edit" [icon]="faPen"></fa-icon>
+      <fa-icon class="item-delete" [icon]="faTimesCircle"></fa-icon>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task__icon-check">
+      <fa-icon [icon]="faCheck" class="completed"></fa-icon>
+      <fa-icon [icon]="faCircle" class="uncompleted"></fa-icon>
+    </div>
+    <div class="task__name">
+      <span>okie</span>
+    </div>
+    <div class="task__action-icons">
+      <fa-icon class="item-edit" [icon]="faPen"></fa-icon>
+      <fa-icon class="item-delete" [icon]="faTimesCircle"></fa-icon>
+    </div>
+  </div>
+
+  <div class="task completed">
+    <div class="task__icon-check">
+      <fa-icon [icon]="faCheck" class="completed"></fa-icon>
+      <fa-icon [icon]="faCircle" class="uncompleted"></fa-icon>
+    </div>
+    <div class="task__name">
+      <span>okie</span>
+    </div>
+    <div class="task__action-icons">
+      <fa-icon class="item-edit" [icon]="faPen"></fa-icon>
+      <fa-icon class="item-delete" [icon]="faTimesCircle"></fa-icon>
+    </div>
+  </div>
+
 </div>
