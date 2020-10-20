@@ -12,7 +12,7 @@
   },
   "browser_action": {
     "default_icon": "assets/icons/icon19.png",
-    "default_title": "browser action demo",
+    "default_title": "Dodo List",
     "default_popup": "index.html"
   }
 }

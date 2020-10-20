@@ -15,14 +15,11 @@ export class AddTaskComponent {
 
   addTask() {
     if (this.task.valid) {
-      let taskToDo: Task = { id: Date.now().toString(), name: this.task.value, done: false }
-      chrome.storage.sync.get('tasks', function (app){
-        if (app.tasks.length === undefined) {
-          app.tasks = [taskToDo]
-        } else {
-          app.tasks.push(taskToDo)
-        }
-        const tasks = app.tasks
+      const taskToDo: Task = { id: Date.now().toString(), name: this.task.value, done: false }
+      chrome.storage.sync.get(['tasks'], function (result){
+        let tasks = result.tasks
+        if (tasks === undefined) tasks = []
+        tasks.push(taskToDo)
         chrome.storage.sync.set({tasks}, function (){ })
       })
       this.task.setValue('')
