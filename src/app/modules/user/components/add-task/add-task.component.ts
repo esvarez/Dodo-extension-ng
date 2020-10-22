@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { Task } from "../../../../shared/models";
-import {FormControl, Validators} from "@angular/forms";
+import { Component } from '@angular/core'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { Store } from '@ngrx/store'
+import { Task } from '../../../../shared/models'
+import {FormControl, Validators} from '@angular/forms'
+import {AppState} from '../../../../app.reducer'
+import {saveTask} from "../../store/actions";
 
 @Component({
   selector: 'dodo-add-task',
@@ -11,17 +14,21 @@ import {FormControl, Validators} from "@angular/forms";
 export class AddTaskComponent {
   faPlus = faPlus
   task = new FormControl('', Validators.required)
-  constructor() { }
 
-  addTask() {
+  constructor(
+    private store: Store<AppState>
+  ) { }
+
+  addTask(): void {
     if (this.task.valid) {
-      const taskToDo: Task = { id: Date.now().toString(), name: this.task.value, done: false }
-      chrome.storage.sync.get(['tasks'], function (result){
+      const task: Task = { id: Date.now().toString(), name: this.task.value, done: false }
+      this.store.dispatch(saveTask({task}))
+      /*chrome.storage.sync.get(['tasks'], function (result){
         let tasks = result.tasks
         if (tasks === undefined) tasks = []
         tasks.push(taskToDo)
         chrome.storage.sync.set({tasks}, function (){ })
-      })
+      })*/
       this.task.setValue('')
       this.clearFocus()
     } else {
@@ -29,7 +36,7 @@ export class AddTaskComponent {
     }
   }
 
-  clearFocus() {
+  clearFocus(): void {
     this.task.markAsUntouched()
   }
 }

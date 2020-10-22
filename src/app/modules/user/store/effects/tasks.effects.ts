@@ -13,20 +13,32 @@ export class TasksEffects {
     private taskChromeService: TaskChromeService
   ) { }
 
-  // @ts-ignore
   loadTask$ = createEffect(() => {
     return this.actions$.pipe(
       ofType( taskActions.loadTasks ),
-      tap( data => console.log('tap ', data)),
-      mergeMap(
-        () => from(this.taskChromeService.getTasks())
+      mergeMap(() => from(this.taskChromeService.getTasks())
           .pipe(
-            tap( data => console.log(data)),
             // @ts-ignore
-              map( tasks => taskActions.loadTasksSuccess({tasks})),
-              catchError( err => of(taskActions.loadTasksError({ payload: err })) )
-            )
+            map( tasks => taskActions.loadTasksSuccess({tasks})),
+            catchError( err => of(taskActions.loadTasksError({ payload: err })))
           )
+        )
       )
+  })
+
+  addTask$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType( taskActions.saveTask ),
+      mergeMap(action => from(this.taskChromeService.saveTask(action.task))
+        .pipe(
+          tap(data => console.log('add new task;', data)),
+          map(task => {
+            console.log(task)
+            return taskActions.saveTaskSuccess({task})
+          }),
+          catchError(err => of(taskActions.saveTaskFail({ payload: err })))
+        )
+      )
+    )
   })
 }
