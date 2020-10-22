@@ -1,10 +1,3 @@
-<div *ngFor="let task of tasks">
-  uno<br>
-</div>
-
-<div *ngIf="tasks">
-  Si
-</div>
 
 <div class="tasks">
 
@@ -22,13 +15,13 @@
     </div>
   </div>
 
-  <div class="task">
+  <div class="task" *ngFor="let task of tasks">
     <div class="task__icon-check">
       <fa-icon [icon]="faCheck" class="completed"></fa-icon>
       <fa-icon [icon]="faCircle" class="uncompleted"></fa-icon>
     </div>
     <div class="task__name">
-      <span>okie</span>
+      <span>{{ task.name }}</span>
     </div>
     <div class="task__action-icons">
       <fa-icon class="item-edit" [icon]="faPen"></fa-icon>
@@ -50,4 +43,8 @@
     </div>
   </div>
 
+</div>
+
+<div *ngIf="tasks">
+  Si
 </div>

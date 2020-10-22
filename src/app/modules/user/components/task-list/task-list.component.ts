@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faCheck, faPen, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { faCircle } from '@fortawesome/free-regular-svg-icons'
-import {Task} from "../../../../shared/models";
+import { Task } from '../../../../shared/models'
 @Component({
   selector: 'dodo-task-list',
   templateUrl: './task-list.component.html',
@@ -13,23 +13,45 @@ export class TaskListComponent implements OnInit {
   faCheck = faCheck
   faCircle = faCircle
   faTimesCircle = faTimesCircle
-  tasks: Task[]
+  tasks: Promise<unknown>
   constructor() { }
 
   ngOnInit(): void {
-    console.log("Init")
+    console.log('init')
     this.getTask()
+    const that = this
+    this.getData().then(function(item: any) {
+      // Returns "bar"
+      console.log('... ', item)
+
+      that.tasks = item
+    })
   }
 
   private getTask() {
     const that = this
     chrome.storage.sync.get('tasks', function (result) {
       const tasks = result.tasks
-      console.log(tasks)
-
-      that.print(tasks)
+      // console.log(tasks)
+      // that.tasks = tasks
+      // that.print(tasks)
     })
   }
+
+  private getData() {
+    return new Promise(function(resolve, reject) {
+      chrome.storage.sync.get('tasks', function(items) {
+        if (chrome.runtime.lastError) {
+          console.error(chrome.runtime.lastError.message)
+          reject(chrome.runtime.lastError.message)
+        } else {
+          console.log(items)
+          resolve(items.tasks)
+        }
+      })
+    })
+  }
+
 
   private print(x){
     console.log('print x', x)

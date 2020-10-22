@@ -16,4 +16,18 @@ export class TaskChromeService {
       chrome.storage.sync.set({tasks}, function (){ })
     })
   }
+
+  public getTasks() {
+    return new Promise(function(resolve, reject) {
+      chrome.storage.sync.get('tasks', function(items) {
+        if (chrome.runtime.lastError) {
+          console.error(chrome.runtime.lastError.message)
+          reject(chrome.runtime.lastError.message)
+        } else {
+          console.log(items)
+          resolve(items.tasks)
+        }
+      })
+    })
+  }
 }
