@@ -11,8 +11,8 @@ import { StoreModule } from '@ngrx/store'
 import { EffectsModule } from '@ngrx/effects'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from '../environments/environment'
-import { taskReducer } from './modules/user/store/reducer/task.reducer'
-import { TaskEffects } from './modules/user/store/effects/task.effects'
+import { TasksEffects } from './modules/user/store/effects/tasks.effects'
+import { appReducers, metaReducers } from './app.reducer'
 
 @NgModule({
   declarations: [
@@ -25,8 +25,14 @@ import { TaskEffects } from './modules/user/store/effects/task.effects'
     BrowserModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({tasks: taskReducer }),
-    EffectsModule.forRoot([TaskEffects]),
+    StoreModule.forRoot(appReducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    }),
+    EffectsModule.forRoot([TasksEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],

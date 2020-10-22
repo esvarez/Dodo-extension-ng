@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { faCheck, faPen, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { faCircle } from '@fortawesome/free-regular-svg-icons'
 import { Task } from '../../../../shared/models'
+import {Store} from '@ngrx/store'
+import {AppState} from '../../../../app.reducer';
+import {loadTasks} from "../../store/actions/tasks.actions";
 @Component({
   selector: 'dodo-task-list',
   templateUrl: './task-list.component.html',
@@ -14,10 +17,16 @@ export class TaskListComponent implements OnInit {
   faCircle = faCircle
   faTimesCircle = faTimesCircle
   tasks: Promise<unknown>
-  constructor() { }
+
+  constructor(
+    private store: Store<AppState>
+  ) { }
 
   ngOnInit(): void {
     console.log('init')
+
+    this.store.dispatch(loadTasks())
+    /*
     this.getTask()
     const that = this
     this.getData().then(function(item: any) {
@@ -25,7 +34,7 @@ export class TaskListComponent implements OnInit {
       console.log('... ', item)
 
       that.tasks = item
-    })
+    })*/
   }
 
   private getTask() {
