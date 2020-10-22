@@ -4,7 +4,7 @@ import {
   MetaReducer
 } from '@ngrx/store'
 import { environment } from '../environments/environment'
-import * as reducers from './modules/user/store/reducer'
+import * as reducers from './store/reducer'
 
 export interface AppState {
   tasks: reducers.TasksState
@@ -15,7 +15,7 @@ export const appReducers: ActionReducerMap<AppState> = {
 }
 
 export function logger(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
-  return function (state: AppState, action: any): AppState {
+  return (state: AppState, action: any): AppState => {
     console.log('state', state)
     console.log('action', action)
     return reducer(state, action)

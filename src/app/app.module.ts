@@ -4,14 +4,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { ReactiveFormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component'
-import { HeaderComponent } from './modules/user/components/header/header.component'
-import { AddTaskComponent } from './modules/user/components/add-task/add-task.component'
-import { TaskListComponent } from './modules/user/components/task-list/task-list.component'
+import { HeaderComponent } from './modules/tasks/components/header/header.component'
+import { AddTaskComponent } from './modules/tasks/components/add-task/add-task.component'
+import { TaskListComponent } from './modules/tasks/components/task-list/task-list.component'
 import { StoreModule } from '@ngrx/store'
 import { EffectsModule } from '@ngrx/effects'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from '../environments/environment'
-import { TasksEffects } from './modules/user/store/effects/tasks.effects'
+import { TasksEffects } from './store/effects/tasks.effects'
 import { appReducers, metaReducers } from './app.reducer'
 
 @NgModule({

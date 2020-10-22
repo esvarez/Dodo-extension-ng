@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store'
 import { Task } from '../../../../shared/models'
 import {FormControl, Validators} from '@angular/forms'
 import {AppState} from '../../../../app.reducer'
-import {saveTask} from "../../store/actions";
+import {saveTask} from "../../../../store/actions";
 
 @Component({
   selector: 'dodo-add-task',

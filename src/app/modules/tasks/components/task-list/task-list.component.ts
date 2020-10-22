@@ -4,7 +4,7 @@ import { faCircle } from '@fortawesome/free-regular-svg-icons'
 import { Task } from '../../../../shared/models'
 import {Store} from '@ngrx/store'
 import {AppState} from '../../../../app.reducer'
-import {loadTasks} from '../../store/actions/tasks.actions'
+import {loadTasks} from '../../../../store/actions/tasks.actions'
 @Component({
   selector: 'dodo-task-list',
   templateUrl: './task-list.component.html',

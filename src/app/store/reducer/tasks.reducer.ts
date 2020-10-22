@@ -7,7 +7,7 @@ import {
   saveTaskFail,
   saveTaskSuccess
 } from '../actions/tasks.actions'
-import { Task } from '../../../../shared/models'
+import { Task } from '../../shared/models'
 
 export interface TasksState {
   tasks: Task[],
