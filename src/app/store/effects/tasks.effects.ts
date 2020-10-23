@@ -43,6 +43,7 @@ export class TasksEffects {
       ofType( taskActions.updateTask ),
       mergeMap(action => from(this.taskChromeService.updateTask(action.id, action.task))
         .pipe(
+          tap(data => console.log('task updated to store', data)),
           map(tasks => taskActions.updateTaskSuccess({tasks})),
           catchError(err => of(taskActions.updateTaskFail({payload: err})))
         )

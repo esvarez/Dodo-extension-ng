@@ -16,9 +16,7 @@ export class TaskChromeService {
     return new Promise(resolve => {
       chrome.storage.sync.get(that.KEY, result => {
         let tasks = result[that.KEY]
-        if (tasks === undefined) {
-          tasks = []
-        }
+        if (tasks === undefined) { tasks = [] }
         tasks.push(task)
         chrome.storage.sync.set({tasks}, () => resolve(task))
       })
@@ -51,7 +49,7 @@ export class TaskChromeService {
         }
 
         const tasks = items[that.KEY]
-        for (const i in tasks.length) {
+        for (const i in tasks) {
           if (tasks[i].id === id) {
             tasks[i] = taskToUpdate
             break
@@ -72,9 +70,10 @@ export class TaskChromeService {
         }
 
         const tasks = items[that.KEY]
-        for (const i in tasks.length) {
+        for (const i in tasks) {
           if (tasks[i].id === id) {
             tasks.splice(i, 1)
+            break
           }
         }
         chrome.storage.sync.set({tasks}, () => resolve(tasks))

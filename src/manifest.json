@@ -1,9 +1,9 @@
 {
   "name": "Dodo List",
-  "version": "0.5.0",
+  "version": "0.3.1",
   "manifest_version": 2,
   "permissions": [ "storage" ],
-  "description": "Chrome extension of Dodo List app. Keep the basic functionalities in your browser",
+  "description": "Chrome extension of Dodo List app. Keep the basic functionalities in an extension browser",
   "homepage_url": "https://ericksuarez.dev",
   "icons": {
     "16": "assets/icons/icon16.png",

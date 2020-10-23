@@ -1,45 +1,17 @@
-
 <div class="tasks">
-
-  <div class="task">
+  <div class="task" *ngFor="let task of tasks; let i = index" [ngClass]="(task.done)? 'completed' : ''">
     <div class="task__icon-check">
-      <fa-icon [icon]="faCheck" class="completed"></fa-icon>
-      <fa-icon [icon]="faCircle" class="uncompleted"></fa-icon>
-    </div>
-    <div class="task__name">
-      <span>okie</span>
-    </div>
-    <div class="task__action-icons">
-      <fa-icon class="item-edit" [icon]="faPen"></fa-icon>
-      <fa-icon class="item-delete" [icon]="faTimesCircle"></fa-icon>
-    </div>
-  </div>
-
-  <div class="task" *ngFor="let task of tasks" >
-    <div class="task__icon-check">
-      <fa-icon [icon]="faCheck" class="completed"></fa-icon>
-      <fa-icon [icon]="faCircle" class="uncompleted"></fa-icon>
+      <fa-icon [icon]="faCheck" class="completed" (click)="toggleTask(i)"></fa-icon>
+      <fa-icon [icon]="faCircle" class="uncompleted" (click)="toggleTask(i)"></fa-icon>
     </div>
     <div class="task__name">
       <span>{{ task.name }}</span>
     </div>
     <div class="task__action-icons">
+      <!--
       <fa-icon class="item-edit" [icon]="faPen"></fa-icon>
-      <fa-icon class="item-delete" [icon]="faTimesCircle"></fa-icon>
-    </div>
-  </div>
-
-  <div class="task completed">
-    <div class="task__icon-check">
-      <fa-icon [icon]="faCheck" class="completed"></fa-icon>
-      <fa-icon [icon]="faCircle" class="uncompleted"></fa-icon>
-    </div>
-    <div class="task__name">
-      <span>okie</span>
-    </div>
-    <div class="task__action-icons">
-      <fa-icon class="item-edit" [icon]="faPen"></fa-icon>
-      <fa-icon class="item-delete" [icon]="faTimesCircle"></fa-icon>
+      -->
+      <fa-icon class="item-delete" [icon]="faTimesCircle" (click)="deleteTask(i)"></fa-icon>
     </div>
   </div>
 </div>

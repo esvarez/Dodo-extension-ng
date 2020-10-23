@@ -23,12 +23,6 @@ export class AddTaskComponent {
     if (this.task.valid) {
       const task: Task = { id: Date.now().toString(), name: this.task.value, done: false }
       this.store.dispatch(saveTask({task}))
-      /*chrome.storage.sync.get(['tasks'], function (result){
-        let tasks = result.tasks
-        if (tasks === undefined) tasks = []
-        tasks.push(taskToDo)
-        chrome.storage.sync.set({tasks}, function (){ })
-      })*/
       this.task.setValue('')
       this.clearFocus()
     } else {
