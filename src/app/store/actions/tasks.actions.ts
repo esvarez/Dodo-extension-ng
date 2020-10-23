@@ -27,3 +27,33 @@ export const saveTaskFail = createAction(
   '[TASK] save task error',
   props<{payload: any}>()
 )
+
+export const updateTask = createAction(
+  '[TASK] update task action',
+  props<{id: string, task: Task}>()
+)
+
+export const updateTaskSuccess = createAction(
+  '[TASK] update task success',
+  props<{tasks: Task[]}>()
+)
+
+export const updateTaskFail = createAction(
+  '[TASK] update task error',
+  props<{payload: any}>()
+)
+
+export const deleteTask = createAction(
+  '[TASK] delete task action',
+  props<{id: string}>()
+)
+
+export const deleteTaskSuccess = createAction(
+  '[TASK] delete task success',
+  props<{tasks: Task[]}>()
+)
+
+export const deleteTaskFail = createAction(
+  '[TASK] delte task fail',
+  props<{payload: any}>()
+)

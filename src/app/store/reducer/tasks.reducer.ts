@@ -1,11 +1,15 @@
 import { createReducer, on } from '@ngrx/store'
 import {
+  deleteTaskFail,
+  deleteTaskSuccess,
   loadTasks,
   loadTasksError,
   loadTasksSuccess,
   saveTask,
   saveTaskFail,
-  saveTaskSuccess
+  saveTaskSuccess,
+  updateTaskFail,
+  updateTaskSuccess
 } from '../actions/tasks.actions'
 import { Task } from '../../shared/models'
 
@@ -55,6 +59,32 @@ const _tasksReducer = createReducer(tasksInitialState,
       url: payload.url,
       name: payload.name,
       message: payload.message
+    }
+  })),
+  on(updateTaskSuccess, (state, { tasks }) => ({
+    ...state,
+    error: null,
+    tasks: [ ...tasks]
+  })),
+  on(updateTaskFail, (state, { payload }) => ({
+    ...state,
+    error: {
+      url: payload.url,
+      name: payload.name,
+      message: payload.message
+    }
+  })),
+  on(deleteTaskSuccess, (state, { tasks }) => ({
+    ...state,
+    tasks: [ ...tasks ],
+    error: null
+  })),
+  on(deleteTaskFail, (state, { payload }) => ({
+    ...state,
+      error: {
+      url: payload.url,
+        name: payload.name,
+        message: payload.message
     }
   }))
 )

@@ -31,12 +31,32 @@ export class TasksEffects {
       ofType( taskActions.saveTask ),
       mergeMap(action => from(this.taskChromeService.saveTask(action.task))
         .pipe(
-          tap(data => console.log('add new task;', data)),
-          map(task => {
-            console.log(task)
-            return taskActions.saveTaskSuccess({task})
-          }),
+          map(task => taskActions.saveTaskSuccess({task})),
           catchError(err => of(taskActions.saveTaskFail({ payload: err })))
+        )
+      )
+    )
+  })
+
+  updateTask$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType( taskActions.updateTask ),
+      mergeMap(action => from(this.taskChromeService.updateTask(action.id, action.task))
+        .pipe(
+          map(tasks => taskActions.updateTaskSuccess({tasks})),
+          catchError(err => of(taskActions.updateTaskFail({payload: err})))
+        )
+      )
+    )
+  })
+
+  deleteTask$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType( taskActions.deleteTask ),
+      mergeMap( action => from( this.taskChromeService.deleteTask(action.id))
+        .pipe(
+          map(tasks => taskActions.deleteTaskSuccess({tasks})),
+          catchError(err => of(taskActions.deleteTaskFail({payload: err})))
         )
       )
     )
