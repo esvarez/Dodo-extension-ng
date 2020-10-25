@@ -60,6 +60,23 @@ export class TaskChromeService {
     })
   }
 
+  public editingTask(taskToEdit: Task): Promise<Task[]> {
+    const that = this
+    const id = taskToEdit.id
+    return new Promise(resolve => {
+      chrome.storage.sync.get(that.KEY, items => {
+        const tasks = items[that.KEY]
+        for (const i in tasks) {
+          if (tasks[i].id === id) {
+            tasks[i].editing = taskToEdit.editing
+            break
+          }
+        }
+        resolve(tasks)
+      })
+    })
+  }
+
   public deleteTask(id: string): Promise<Task[]> {
     const that = this
     return new Promise((resolve, reject) => {
