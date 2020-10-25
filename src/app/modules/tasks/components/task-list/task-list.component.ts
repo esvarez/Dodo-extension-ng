@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core'
-import { faCheck, faPen, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import {Component, ElementRef, OnInit, QueryList, ViewChildren} from '@angular/core'
+import { faCheck, faPen, faTimesCircle, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { faCircle } from '@fortawesome/free-regular-svg-icons'
 import { Task } from '../../../../shared/models'
-import {Store} from '@ngrx/store'
-import {AppState} from '../../../../app.reducer'
-import {deleteTask, loadTasks, updateTask} from '../../../../store/actions/tasks.actions'
+import { Store } from '@ngrx/store'
+import { AppState } from '../../../../app.reducer'
+import { deleteTask, editingTask, loadTasks, updateTask } from '../../../../store/actions/tasks.actions'
 // @ts-ignore
 import Timeout = NodeJS.Timeout
 @Component({
@@ -17,7 +17,7 @@ export class TaskListComponent implements OnInit {
   faPen = faPen
   faCheck = faCheck
   faCircle = faCircle
-  faTimesCircle = faTimesCircle
+  faTrashAlt = faTrashAlt
   tasks: Task[] = []
   removeList: Map<string, Timeout> = new Map<string, Timeout>()
 
@@ -39,6 +39,12 @@ export class TaskListComponent implements OnInit {
     task.done = !task.done
     this.store.dispatch(updateTask({id: task.id, task }))
     this.removeTask(task)
+  }
+
+  editTask(index: number): void {
+    const task: Task = Object.assign({}, this.tasks[index])
+    task.editing = true
+    this.store.dispatch(editingTask({task}))
   }
 
   deleteTask(index: number): void {

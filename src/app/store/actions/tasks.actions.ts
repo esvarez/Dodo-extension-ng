@@ -28,6 +28,7 @@ export const saveTaskFail = createAction(
   props<{payload: any}>()
 )
 
+// This action modify the estate and the store
 export const updateTask = createAction(
   '[TASK] update task action',
   props<{id: string, task: Task}>()
@@ -54,6 +55,38 @@ export const deleteTaskSuccess = createAction(
 )
 
 export const deleteTaskFail = createAction(
-  '[TASK] delte task fail',
+  '[TASK] delete task fail',
   props<{payload: any}>()
 )
+
+// This action modify the estate but not the store
+export const editingTask = createAction(
+  '[TASK] editing task',
+  props<{task: Task}>()
+)
+
+export const editingTaskSuccess = createAction(
+  '[TASK] editing task success',
+  props<{tasks: Task[]}>()
+)
+
+export const editingTaskFail = createAction(
+  '[TASK] editing task error',
+  props<{payload: any}>()
+)
+
+export const cancelEditingTask = createAction(
+  '[TASK] cancel editing task',
+  props<{task: Task}>()
+)
+
+export const cancelEditingTaskSuccess = createAction(
+  '[TASK] cancel editing task success',
+  props<{tasks: Task[]}>()
+)
+
+export const cancelEditingTaskFail = createAction(
+  '[TASK] cancel editing task error',
+  props<{payload: any}>()
+)
+

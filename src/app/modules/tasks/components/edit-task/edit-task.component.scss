@@ -1,0 +1,55 @@
+.btnInside {
+  position:relative;
+  margin: 0.5em 0;
+}
+
+.add-todo__input {
+  width: 325px;
+  border-radius: 5px;
+  padding: .5rem 1rem;
+  background: #e8ebed;
+  margin: 0;
+  outline: 0;
+  border: 2px solid #e8ebed;
+  transition: background .25s ease-out;
+  transition: border .25s ease-out;
+  &:focus {
+    background: none;
+    border: 2px solid #62D2A2;
+  }
+
+  &.ng-touched {
+    &.ng-invalid {
+      border: 2px solid red;
+    }
+  }
+}
+
+.error {
+  display: block;
+  margin: 0.5em 1rem;
+  color: red;
+}
+
+fa-icon {
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  color: #666;
+
+  &.update {
+    left: 310px;
+    &:hover {
+      color: #62D2A2;
+    }
+  }
+  &.cancel {
+    left: 330px;
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+

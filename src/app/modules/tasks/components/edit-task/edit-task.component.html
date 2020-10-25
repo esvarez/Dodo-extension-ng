@@ -1,0 +1,11 @@
+<div class="btnInside">
+  <input class="add-todo__input" id="input" [formControl]="taskCtrl" (keyup.enter)="updateTask()">
+  <fa-icon [icon]="faSave" class="update" (click)="updateTask()"></fa-icon>
+  <fa-icon [icon]="faTimesCircle" class="cancel" (click)="cancelEditing()"></fa-icon>
+  <span *ngIf="taskCtrl.invalid && taskCtrl.touched" class="error">Add a valid dodo</span>
+</div>
+
+<!--
+
+(keyup.enter)="updateTask()" (focusout)="updateTask()"
+-->

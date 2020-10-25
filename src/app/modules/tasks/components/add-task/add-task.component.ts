@@ -2,9 +2,9 @@ import { Component } from '@angular/core'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { Store } from '@ngrx/store'
 import { Task } from '../../../../shared/models'
-import {FormControl, Validators} from '@angular/forms'
-import {AppState} from '../../../../app.reducer'
-import {saveTask} from "../../../../store/actions";
+import { FormControl, Validators } from '@angular/forms'
+import { AppState } from '../../../../app.reducer'
+import { saveTask } from '../../../../store/actions'
 
 @Component({
   selector: 'dodo-add-task',
@@ -21,7 +21,7 @@ export class AddTaskComponent {
 
   addTask(): void {
     if (this.task.valid) {
-      const task: Task = { id: Date.now().toString(), name: this.task.value, done: false }
+      const task: Task = new Task(this.task.value)
       this.store.dispatch(saveTask({task}))
       this.task.setValue('')
       this.clearFocus()

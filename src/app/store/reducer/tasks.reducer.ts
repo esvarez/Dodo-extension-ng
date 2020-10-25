@@ -1,7 +1,9 @@
 import { createReducer, on } from '@ngrx/store'
 import {
+  cancelEditingTaskFail,
+  cancelEditingTaskSuccess,
   deleteTaskFail,
-  deleteTaskSuccess,
+  deleteTaskSuccess, editingTask, editingTaskFail, editingTaskSuccess,
   loadTasks,
   loadTasksError,
   loadTasksSuccess,
@@ -15,6 +17,7 @@ import { Task } from '../../shared/models'
 
 export interface TasksState {
   tasks: Task[],
+  taskEdit: Task,
   loaded: boolean,
   loading: boolean,
   error: any
@@ -22,6 +25,7 @@ export interface TasksState {
 
 export const tasksInitialState: TasksState = {
   tasks: [],
+  taskEdit: null,
   loaded: false,
   loading: false,
   error: null
@@ -63,11 +67,45 @@ const _tasksReducer = createReducer(tasksInitialState,
   })),
   on(updateTaskSuccess, (state, { tasks }) => ({
     ...state,
+    taskEdit: null,
     error: null,
     tasks: [ ...tasks]
   })),
   on(updateTaskFail, (state, { payload }) => ({
     ...state,
+    error: {
+      url: payload.url,
+      name: payload.name,
+      message: payload.message
+    }
+  })),
+  on(editingTask, (state, { task }) => ({
+    ...state,
+    taskEdit: task
+  })),
+  on(editingTaskSuccess, (state, { tasks }) => ({
+    ...state,
+    error: null,
+    tasks: [ ...tasks]
+  })),
+  on(editingTaskFail, (state, { payload }) => ({
+    ...state,
+    taskEdit: null,
+    error: {
+      url: payload.url,
+      name: payload.name,
+      message: payload.message
+    }
+  })),
+  on(cancelEditingTaskSuccess, (state, { tasks }) => ({
+    ...state,
+    taskEdit: null,
+    error: null,
+    tasks: [ ...tasks]
+  })),
+  on(cancelEditingTaskFail, (state, { payload }) => ({
+    ...state,
+    taskEdit: null,
     error: {
       url: payload.url,
       name: payload.name,

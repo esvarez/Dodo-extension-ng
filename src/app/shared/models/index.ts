@@ -1,1 +1,1 @@
-export { Task } from './task'
+export { Task, ITask } from './task'

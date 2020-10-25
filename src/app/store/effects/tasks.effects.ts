@@ -43,9 +43,34 @@ export class TasksEffects {
       ofType( taskActions.updateTask ),
       mergeMap(action => from(this.taskChromeService.updateTask(action.id, action.task))
         .pipe(
-          tap(data => console.log('task updated to store', data)),
           map(tasks => taskActions.updateTaskSuccess({tasks})),
           catchError(err => of(taskActions.updateTaskFail({payload: err})))
+        )
+      )
+    )
+  })
+
+  cancelEditingTask$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(taskActions.cancelEditingTask),
+      mergeMap(action => from (this.taskChromeService.editingTask(action.task))
+        .pipe(
+          tap(data => console.log('cancel editing to store', data)),
+          map(tasks => taskActions.cancelEditingTaskSuccess({tasks})),
+          catchError(err => of(taskActions.cancelEditingTaskFail({payload: err})))
+        )
+      )
+    )
+  })
+
+  editingTask$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(taskActions.editingTask),
+      mergeMap(action => from (this.taskChromeService.editingTask(action.task))
+        .pipe(
+          tap(data => console.log('task editing to store', data)),
+          map(tasks => taskActions.editingTaskSuccess({tasks})),
+          catchError(err => of(taskActions.editingTaskFail({payload: err})))
         )
       )
     )

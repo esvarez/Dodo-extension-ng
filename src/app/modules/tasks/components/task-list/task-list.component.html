@@ -1,17 +1,22 @@
 <div class="tasks">
-  <div class="task" *ngFor="let task of tasks; let i = index" [ngClass]="(task.done)? 'completed' : ''">
-    <div class="task__icon-check">
-      <fa-icon [icon]="faCheck" class="completed" (click)="toggleTask(i)"></fa-icon>
-      <fa-icon [icon]="faCircle" class="uncompleted" (click)="toggleTask(i)"></fa-icon>
+  <div *ngFor="let task of tasks; let i = index" >
+    <div class="task" *ngIf="!task.editing else editingTask" [ngClass]="(task.done)? 'completed' : ''">
+      <div class="task__icon-check">
+        <fa-icon [icon]="faCheck" class="completed" (click)="toggleTask(i)"></fa-icon>
+        <fa-icon [icon]="faCircle" class="uncompleted" (click)="toggleTask(i)"></fa-icon>
+      </div>
+      <div class="task__name">
+        <span >{{ task.name }}</span>
+      </div>
+      <div class="task__action-icons">
+        <fa-icon class="item-edit" [icon]="faPen" (click)="editTask(i)" *ngIf="!task.editing"></fa-icon>
+        <fa-icon class="item-delete" [icon]="faTrashAlt" (click)="deleteTask(i)"></fa-icon>
+      </div>
     </div>
-    <div class="task__name">
-      <span>{{ task.name }}</span>
-    </div>
-    <div class="task__action-icons">
-      <!--
-      <fa-icon class="item-edit" [icon]="faPen"></fa-icon>
-      -->
-      <fa-icon class="item-delete" [icon]="faTimesCircle" (click)="deleteTask(i)"></fa-icon>
-    </div>
+    <ng-template #editingTask>
+      <dodo-edit-task></dodo-edit-task>
+    </ng-template>
   </div>
 </div>
+
+{{ tasks | json }}
