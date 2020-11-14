@@ -13,7 +13,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from '../environments/environment'
 import { TasksEffects } from './store/effects/tasks.effects'
 import { appReducers, metaReducers } from './app.reducer';
-import { EditTaskComponent } from './modules/tasks/components/edit-task/edit-task.component'
+import { EditTaskComponent } from './modules/tasks/components/edit-task/edit-task.component';
+import { DatePickerComponent } from './modules/tasks/components/date-picker/date-picker.component'
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { EditTaskComponent } from './modules/tasks/components/edit-task/edit-tas
     HeaderComponent,
     AddTaskComponent,
     TaskListComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    DatePickerComponent
   ],
   imports: [
     BrowserModule,

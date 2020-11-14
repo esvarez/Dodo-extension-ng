@@ -1,0 +1,49 @@
+fa-icon {
+  font-size: 22px;
+}
+
+.calendar {
+  width: 240px;
+  height: 180px;
+  border-radius: 5px;
+  border: solid 1px;
+  padding: 0.5em;
+
+  &__header {
+    margin-bottom: 1em;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 4px;
+    grid-row: 1;
+  }
+}
+
+.week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 8px;
+  grid-row: 1;
+  color: #666666;
+}
+
+.day-week {
+  text-align: center;
+}
+
+.left-icon {
+  grid-column: 4;
+  text-align: center;
+}
+
+.right-icon {
+  grid-column: 5;
+  text-align: center;
+}
+
+.month {
+  margin: auto 0;
+  padding-left: 4px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+}

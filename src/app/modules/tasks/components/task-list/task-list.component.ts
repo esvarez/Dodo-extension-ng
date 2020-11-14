@@ -1,5 +1,5 @@
-import {Component, ElementRef, OnInit, QueryList, ViewChildren} from '@angular/core'
-import { faCheck, faPen, faTimesCircle, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { Component, OnInit } from '@angular/core'
+import { faCheck, faPen, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { faCircle } from '@fortawesome/free-regular-svg-icons'
 import { Task } from '../../../../shared/models'
 import { Store } from '@ngrx/store'

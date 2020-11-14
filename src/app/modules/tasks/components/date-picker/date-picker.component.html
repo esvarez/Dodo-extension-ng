@@ -1,0 +1,13 @@
+<fa-icon [icon]="calendar"></fa-icon>
+<div class="calendar">
+  <div class="calendar__header">
+    <span class="month">Mes</span>
+    <fa-icon class="left-icon" [icon]="arrowLeft"></fa-icon>
+    <fa-icon class="right-icon" [icon]="arrowRight"></fa-icon>
+  </div>
+  <div class="calendar__body">
+    <div class="week">
+      <span class="day-week" *ngFor="let day of weekDays">{{day}}</span>
+    </div>
+  </div>
+</div>
