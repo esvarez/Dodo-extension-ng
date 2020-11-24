@@ -6,6 +6,7 @@ $theme2: $blue;
 
 fa-icon {
   cursor: pointer;
+  font-size: 14px;
 }
 
 .tasks {
@@ -104,14 +105,16 @@ fa-icon {
       }
 
       fa-icon{
-        height: 18px;
+        font-size: 16px;
+        //height: 18px;
+        //width: 18px;
         left: 50%;
         line-height: 18px;
         position: absolute;
         top: 50%;
         transform: translateX(-50%) translateY(-50%) scale(1);
         transition: all 0.5s;
-        width: 18px;
+
 
         &.completed{
           opacity: 0;
